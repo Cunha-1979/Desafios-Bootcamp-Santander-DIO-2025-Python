@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "store-api"
+version = "0.1.0"
+description = "API de exemplo (TDD) em FastAPI + MongoDB"
+authors = ["Paulo Cunha <dacunha.paulor@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "store" }]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.104.1"
+uvicorn = "^0.24.0.post1"
+pydantic = "^2.5.1"
+pydantic-settings = "^2.1.0"
+motor = "^3.3.1"
+pymongo = "^4.6.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+pytest-asyncio = "^0.21.1"
+httpx = "^0.25.0"
+black = "^23.11.0"
+ruff = "^0.1.9"
+pre-commit = "^3.6.0"
+pyupgrade = "^3.15.0"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = [
+  "--strict-config",
+  "--strict-markers",
+]
+xfail_strict = true
+junit_family = "xunit2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
